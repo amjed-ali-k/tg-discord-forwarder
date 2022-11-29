@@ -5,32 +5,35 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "test": "echo 'TODO: Add a test runner and then update this command'",
-    "serve": "echo 'TODO: Add your serve command here",
-    "start": "npm run serve",
+    "serve": "nodemon ./src/index.ts",
+    "start": "pnpm serve",
     "build": "mkdir -p build && cp src/*.js build # TODO: Replace with your build command",
-    "preversion": "git fetch --tags && npm run lint:check && npm test",
-    "version": "npm run build",
+    "preversion": "git fetch --tags && pnpm lint:check && npm test",
+    "version": "pnpm build",
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
-    "eslint": "^7.7.0"
+    "@types/node": "^18.11.9",
+    "eslint": "^7.7.0",
+    "nodemon": "^2.0.20",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.9.3"
   },
   "engines": {
     "node": ">=14"
   },
-  "displayName": "Node Project Template",
+  "displayName": "Telegram to Discord",
   "description": "Template for creating Node.js projects including docs and a deploy pipeline",
-  "author": "MichaelCurrin",
+  "author": "Amjed Ali K",
   "license": "MIT",
-  "homepage": "https://github.com/MichaelCurrin/node-project-template#readme",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/MichaelCurrin/node-project-template"
-  },
-  "bugs": "https://github.com/MichaelCurrin/node-project-template/issues",
   "keywords": [
     "template",
     "skeleton",
     "quickstart"
-  ]
+  ],
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "input": "^1.0.1",
+    "telegram": "^2.14.7"
+  }
 }
