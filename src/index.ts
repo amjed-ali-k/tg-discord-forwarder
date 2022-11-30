@@ -20,6 +20,6 @@ const main = async (e?: any) => {
 // app.lib.cron(main);
 
 const run = async (e?: any) => {
-  setInterval(main, 10000);
+  setInterval(main, 60 * 1 * 1000);
 };
 run();
