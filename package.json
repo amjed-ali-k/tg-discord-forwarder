@@ -5,7 +5,7 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev": "nodemon ./src/index.ts --trace-warnings",
-    "build": "rimraf ./build && tsc",
+    "pre": "rimraf ./build && tsc",
     "start": "node build/index.js",
     "deploy": "cp -r .deta ./build && cp ./pkg.json ./build && mv ./build/pkg.json ./build/package.json && deta deploy ./build"
   },
