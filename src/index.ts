@@ -6,6 +6,7 @@ if (process.env.NODE_ENV !== "production") {
 }
 
 const main = async (e?: any) => {
+  console.log("Run Started");
   const telegram = await telegramInit();
   const discord = await discordInit();
   while (
@@ -20,6 +21,7 @@ const main = async (e?: any) => {
 // app.lib.cron(main);
 
 const run = async (e?: any) => {
+  console.log("Server Started - LOL!");
   setInterval(main, 60 * 1 * 1000);
 };
 run();
