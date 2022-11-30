@@ -4,8 +4,8 @@
   "scripts": {
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
-    "serve": "nodemon ./src/index.ts --trace-warnings",
-    "start": "nodemon ./src/index.ts --trace-warnings",
+    "dev": "nodemon ./src/index.ts --trace-warnings",
+    "start": "ts-node ./src/index.ts --trace-warnings",
     "build": "rimraf ./build && parcel build",
     "deploy": "cp -r .deta ./build && cp ./pkg.json ./build && mv ./build/pkg.json ./build/package.json && deta deploy ./build"
   },
