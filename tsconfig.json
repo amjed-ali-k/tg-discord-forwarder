@@ -1,6 +1,10 @@
 {
   "extends": "@tsconfig/node16/tsconfig.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "outDir": "build" /* Redirect output structure to the directory. */,
+    "rootDir": "src",
+    "esModuleInterop": true
+  },
   "include": ["src"],
   "exclude": ["node_modules"]
 }

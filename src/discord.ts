@@ -26,9 +26,9 @@ export const forwardMessages = async (
 ) => {
   const dest = (await getForwardDestinations(discord)).at(0);
   if (!file) {
-    dest.send(message);
+    dest?.send(message);
   } else {
-    dest.send({
+    dest?.send({
       files: [
         {
           attachment: file,

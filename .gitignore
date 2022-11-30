@@ -3,3 +3,7 @@ npm-debug.log*
 
 build/
 .env
+build
+.parcel-cache
+.package-lock.json
+dist/

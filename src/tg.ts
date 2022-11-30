@@ -13,7 +13,9 @@ const deta = Deta(process.env.DETA_PROJECT_KEY || "");
 const tgMsgDb = deta.Base("tg_channel_messages");
 const tgInfo = deta.Base("tg_channel_info");
 
-const saveLocation = {
+const saveLocation: {
+  [key: string]: string;
+} = {
   deta: "/tmp",
   local: `${__dirname}/downloads`,
 };
@@ -34,7 +36,7 @@ export const fetchMessagesFromChannel = async (
   onMessage: (message: string, imageLoc?: string) => Promise<void>
 ) => {
   const lastMessage =
-    ((await tgInfo.get(channelId)).lastMessageId as string) || "172";
+    ((await tgInfo.get(channelId))?.lastMessageId as string) || "172";
   const ids = Array(5)
     .fill(0)
     .map((e, i) => {
@@ -47,7 +49,7 @@ export const fetchMessagesFromChannel = async (
       id: [...(ids as unknown as Api.TypeInputMessage[])],
     })
   );
-  let url: string = null;
+  let url: string | undefined = undefined;
   if (result.className !== "messages.ChannelMessages") return;
   let count = 0;
   const res = await Promise.all(
