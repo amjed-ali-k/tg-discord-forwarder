@@ -1,5 +1,9 @@
-import { app } from "deta";
-import main from "./src/index";
+const { app } = require("deta");
+const main = require("./src/index");
+// import main from "./src/index";
+
 app.lib.cron(main);
 
-export default app;
+module.exports = app;
+
+// export default app;
