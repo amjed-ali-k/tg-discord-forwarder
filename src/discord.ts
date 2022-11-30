@@ -25,7 +25,9 @@ export const forwardMessages = async (
   file?: string
 ) => {
   const dest = (await getForwardDestinations(discord)).at(0);
+
   if (!file) {
+    if (message === "") return;
     dest?.send(message);
   } else {
     dest?.send({

@@ -20,6 +20,12 @@ const saveLocation: {
   local: `${__dirname}/downloads`,
 };
 
+export let lastRunArr: number[] = [];
+
+export const endOpes = () => {
+  lastRunArr = [];
+};
+
 export const telegramInit = async () => {
   const telegram = new TelegramClient(stringSession, parseInt(apiID), apiHash, {
     connectionRetries: 5,
@@ -39,10 +45,13 @@ export const fetchMessagesFromChannel = async (
     ((await tgInfo.get(channelId))?.lastMessageId as string) || "172";
   const ids = Array(5)
     .fill(0)
-    .map((e, i) => {
-      return parseInt(lastMessage) + i + 1;
-    });
-
+    .map((_e, i) => {
+      const index = parseInt(lastMessage) + i + 1;
+      return index;
+    })
+    .filter((e) => !lastRunArr.includes(e));
+  console.log("IDS", ids);
+  if (ids.length === 0) return 0;
   const result = await telegram.invoke(
     new Api.channels.GetMessages({
       channel: channelId,
@@ -51,9 +60,12 @@ export const fetchMessagesFromChannel = async (
   );
   let url: string | undefined = undefined;
   if (result.className !== "messages.ChannelMessages") return;
+
   let count = 0;
+
   const res = await Promise.all(
     result.messages.map(async (e) => {
+      lastRunArr.push(e.id);
       if (e.className !== "Message") return;
       const { message, media } = e;
       if (
@@ -61,7 +73,7 @@ export const fetchMessagesFromChannel = async (
         media.className &&
         ["MessageMediaPhoto"].includes(media.className)
       ) {
-        url = `${saveLocation[process.env.TELGRAM_API_KEY || "deta"]}/${e.id}.${
+        url = `${saveLocation.local}/${e.id}.${
           media.className === "MessageMediaPhoto" ? "jpg" : "pdf"
         }`;
         await telegram.downloadMedia(e, {

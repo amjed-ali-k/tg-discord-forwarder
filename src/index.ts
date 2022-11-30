@@ -1,5 +1,5 @@
 import { discordInit, forwardMessages } from "./discord";
-import { fetchMessagesFromChannel, telegramInit } from "./tg";
+import { endOpes, fetchMessagesFromChannel, telegramInit } from "./tg";
 
 if (process.env.NODE_ENV !== "production") {
   require("dotenv").config();
@@ -13,12 +13,13 @@ const main = async (e?: any) => {
       forwardMessages(discord, e, f)
     )
   );
+  endOpes();
+  console.log("Run complete");
 };
 
 // app.lib.cron(main);
 
 const run = async (e?: any) => {
-  setInterval(main, 2 * 60 * 1000);
+  setInterval(main, 10000);
 };
-
 run();

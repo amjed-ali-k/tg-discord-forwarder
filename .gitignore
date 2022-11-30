@@ -7,3 +7,4 @@ build
 .parcel-cache
 .package-lock.json
 dist/
+src/downloads
