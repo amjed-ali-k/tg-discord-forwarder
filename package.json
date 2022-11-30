@@ -13,6 +13,7 @@
     "postversion": "git push --follow-tags"
   },
   "devDependencies": {
+    "@tsconfig/node16": "^1.0.3",
     "@types/node": "^18.11.9",
     "eslint": "^7.7.0",
     "nodemon": "^2.0.20",

@@ -1,5 +1,4 @@
-# Node Project Template
-> Starter template for creating a Node.js project including docs and a deploy pipeline
+# Telgram to discord forward bot
 
 <!-- Badges generated with: https://michaelcurrin.github.io/badge-generator/ -->
 
@@ -28,7 +27,6 @@
 
 </div>
 
-
 ## Preview
 
 _This is a placeholder section for a screenshot of your shiny new web app or CLI tool_.
@@ -39,14 +37,13 @@ _This is a placeholder section for a screenshot of your shiny new web app or CLI
     <img src="/sample.png" alt="Sample screenshot" title="Sample screenshot" />
 </div>
 
-
 ## Sample usage
 
 _TODO: Add just a few lines to show how to use your application. Such as a Node CLI or shell snippet._`
 
 ```sh
-$ npm install foo
-$ foo --help
+npm install foo
+foo --help
 ```
 
 ```javascript
@@ -54,22 +51,3 @@ import { foo } from "bar";
 
 foo(123)
 ```
-
-
-## Documentation
-> How to install, run and deploy this project
-
-<div align="center">
-    
-[![View Project Docs](https://img.shields.io/badge/View-Project_Docs-blue?style=for-the-badge)](/docs/)
-
-</div>
-
-<!-- TODO delete this note on a new project -->
-
-See the [Template Notes](/docs/template-notes/) section of the docs for info on this template and how to use it.
-
-
-## License
-
-Released under [MIT](/LICENSE) by [@MichaelCurrin](https://github.com/MichaelCurrin).

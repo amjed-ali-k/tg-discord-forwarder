@@ -1,6 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
+  '@tsconfig/node16': ^1.0.3
   '@types/node': ^18.11.9
   deta: ^1.1.0
   discord.js: ^14.7.0
@@ -20,6 +21,7 @@ dependencies:
   telegram: 2.14.7
 
 devDependencies:
+  '@tsconfig/node16': 1.0.3
   '@types/node': 18.11.9
   eslint: 7.32.0
   nodemon: 2.0.20
