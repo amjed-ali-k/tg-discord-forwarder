@@ -1,9 +1,9 @@
 node_modules/
 npm-debug.log*
 
-build/
+# build/
 .env
-build
+# build
 .parcel-cache
 .package-lock.json
 dist/

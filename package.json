@@ -5,8 +5,8 @@
     "lint:check": "eslint .",
     "lint:fix": "eslint . --fix",
     "dev": "nodemon ./src/index.ts --trace-warnings",
-    "build": "tsc",
-    "start": "npm run build && node build/index.js",
+    "build": "rimraf ./build && tsc",
+    "start": "node build/index.js",
     "deploy": "cp -r .deta ./build && cp ./pkg.json ./build && mv ./build/pkg.json ./build/package.json && deta deploy ./build"
   },
   "devDependencies": {
